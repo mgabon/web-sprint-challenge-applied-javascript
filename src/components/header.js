@@ -12,9 +12,9 @@ headerDiv.appendChild(dateSpan)
 headerDiv.appendChild(titleHeader)
 headerDiv.appendChild(temperature)
 
-dateSpan.textContent = date
-titleHeader.textContent = title
-temperature.textContent = temp
+dateSpan.textContent = date;
+titleHeader.textContent = title;
+temperature.textContent = temp;
 
 
   // TASK 1
@@ -30,12 +30,13 @@ temperature.textContent = temp
   //  </div>
   //
 
-  //document.querySelector('.header-container').appendChild(headerDiv)
+ //document.querySelector('.header-container').appendChild(headerDiv)
   return headerDiv
 }
 
+
 const headerAppender = (selector) => {
-document.querySelector(selector).appendChild(Header())
+document.querySelector(selector).appendChild(Header('Bloom New Article', '01/02/3456', '72'))
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
@@ -43,5 +44,6 @@ document.querySelector(selector).appendChild(Header())
   // It should append the header to the element in the DOM that matches the given selector.
   //
 }
+
 
 export { Header, headerAppender }

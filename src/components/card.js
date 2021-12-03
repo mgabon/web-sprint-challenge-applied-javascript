@@ -1,4 +1,43 @@
+
+import axios from 'axios'
+
 const Card = (article) => {
+
+  const bigCard = document.querySelector('.cards-container')
+
+article.forEach(obj => {
+  const card = document.createElement('div')
+card.classList.add('card')
+
+bigCard.appendChild(card)
+
+  const headline = document.createElement('div')
+  headline.classList.add('headline')
+  card.appendChild(headline)
+  headline.textContent = obj.headline
+
+  
+  const author = document.createElement('div')
+  author.classList.add('author')
+  card.appendChild(author)
+
+    const container = document.createElement('div')
+  container.classList.add('img-container')
+  author.appendChild(container)
+
+  const image = document.createElement('img')
+  image.src = obj.authorPhoto
+  container.appendChild(image)
+
+  const span = document.createElement('span')
+  span.textContent = obj.authorName
+  author.appendChild(span)
+});
+
+  document.querySelector('.cards-container').addEventListener('click', () => {
+    document.querySelector('.cards-container')
+   console.log(headline)
+  })
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -17,9 +56,23 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+//document.querySelector('.cards-container').appendChild(card)
+  //return card
 }
 
 const cardAppender = (selector) => {
+axios.get('http://localhost:5000/api/articles')
+.then(resp => {
+const javascript = resp.data.articles.javascript
+const bootstrap = resp.data.articles.bootstrap
+const technology = resp.data.articles.technology
+const jquery = resp.data.articles.jquery
+const node = resp.data.articles.node
+const merged = [...javascript, ...bootstrap, ...technology, ...jquery, ...node]
+Card(merged);
+
+});
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.

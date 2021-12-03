@@ -1,4 +1,22 @@
 const Tabs = (topics) => {
+  const topic = document.createElement('div')
+  // const tabOne = document.createElement('div')
+  // const tabTwo = document.createElement('div')
+  // const tabThree = document.createElement('div')
+
+  topic.classList.add('topics')
+  // tabOne.classList.add('tab')
+  // tabTwo.classList.add('tab')
+  // tabThree.classList.add('tab')
+
+  // topic.appendChild(tabOne, tabTwo, tabThree)
+
+topics.forEach(item => {
+const newTab = document.createElement('div')
+const tabContent = newTab.classList.add('tab')
+tabContent.textContent = item;
+newTab.appendChild(tabContent);
+});
   // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
@@ -13,9 +31,11 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+  return topic;
 }
 
 const tabsAppender = (selector) => {
+  document.querySelector(selector).appendChild(Tabs())
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
